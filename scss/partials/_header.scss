@@ -457,7 +457,9 @@ main {
                     margin-top: 12px;
                     word-break: break-all;
 
-                    @include _ellipsis-multiline(1, 20px) a.rss-link {
+                    @include _ellipsis-multiline(1, 20px);
+                    
+                    a.rss-link {
                         i {
                             font-size: 12px;
                         }

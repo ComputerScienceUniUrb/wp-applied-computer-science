@@ -7,7 +7,7 @@
  * @package applied-computer-science
  */
 
-if ( ! function_exists( 'applied_computer_science_setup' ) ) :
+if (!function_exists( 'applied_computer_science_setup')) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -17,7 +17,7 @@ if ( ! function_exists( 'applied_computer_science_setup' ) ) :
 	 */
 	function applied_computer_science_setup() {
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		add_theme_support('automatic-feed-links');
 
 		/*
 		 * Let WordPress manage the document title.
@@ -25,38 +25,41 @@ if ( ! function_exists( 'applied_computer_science_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		add_theme_support('title-tag');
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		add_theme_support('post-thumbnails');
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support( 'html5', array(
+		add_theme_support('html5', array(
 			'search-form',
 			'comment-form',
 			'comment-list',
 			'gallery',
 			'caption',
-		) );
+		));
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'applied_computer_science_custom_background_args', array(
+		add_theme_support('custom-background', apply_filters( 'applied_computer_science_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
-		) ) );
+		)));
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		add_theme_support('customize-selective-refresh-widgets');
+
+		// Register main menu
+		register_nav_menu('main-menu-it', 'Main navigation menu');
 	}
-endif;
-add_action( 'after_setup_theme', 'applied_computer_science_setup' );
+}
+add_action('after_setup_theme', 'applied_computer_science_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -79,25 +82,25 @@ add_action( 'after_setup_theme', 'applied_computer_science_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function applied_computer_science_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'applied-computer-science' ),
+	register_sidebar(array(
+		'name'          => esc_html__('Sidebar', 'applied-computer-science'),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'applied-computer-science' ),
+		'description'   => esc_html__('Add widgets here.', 'applied-computer-science'),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
-	) );
+	));
 	
-	register_sidebar( array(
-		'name' => esc_html__( 'Footer', 'applied-computer-science' ),
+	register_sidebar(array(
+		'name' => esc_html__('Footer', 'applied-computer-science'),
 		'id' => 'footer',
-		'description' => esc_html__( 'Add widgets here.', 'applied-computer-science' ),
+		'description' => esc_html__('Add widgets here.', 'applied-computer-science'),
 		'before_widget' => '<div id="%1$s" class="widget %2$s col col-6">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
 		'after_title' => '</h3>',
-		) );
+	));
 }
 add_action( 'widgets_init', 'applied_computer_science_widgets_init' );
 
@@ -133,7 +136,7 @@ function get_main_menu($lang = 'IT') {
     wp_nav_menu(array( 
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
-    	'menu' => 'Menu '.$lang,                           // nav name
+    	'menu' => 'main-menu-it',                           // nav name
     	'menu_class' => 'nav top-nav clearfix',         // adding custom nav class
     	//'theme_location' => 'main-nav',                 // where it's located in the theme
     	'before' => '',                                 // before the menu

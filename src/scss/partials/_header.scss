@@ -11,7 +11,7 @@ header#header {
         }
     }
 
-    >div.logo-menu-wrapper {
+    div.logo-menu-wrapper {
         display: grid;
         align-items: center;
         background: #fff;
@@ -370,7 +370,7 @@ header#header {
     }
 
     &.dark {
-        >div.logo-menu-wrapper {
+        div.logo-menu-wrapper {
             background: $primary;
             border-color: $darkGrey;
 

@@ -1,0 +1,6 @@
+*.php   eol=lf
+*.js    eol=lf
+*.css   eol=lf
+*.scss  eol=lf
+
+*.bat   eol=crlf

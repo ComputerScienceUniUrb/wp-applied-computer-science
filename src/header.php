@@ -28,12 +28,14 @@
 
 	    <!-- Logo and menu wrapper -->
 		<div class="logo-menu-wrapper">
-			<div class="logo"><a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri() .'/img/logo.jpg' ?>" alt="Logo"></a></div>
-			<div class="menu">
-				<?php get_main_menu(); // Adjust using Menus in Wordpress Admin ?>
-			</div>
-			<div class="menu-toggler">
-                <i class="fas fa-bars"></i>
+			<div class="logo-menu-constrainer">
+				<div class="logo"><a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri() .'/img/logo.jpg' ?>" alt="Logo"></a></div>
+				<div class="menu">
+					<?php get_main_menu(); // Adjust using Menus in Wordpress Admin ?>
+				</div>
+				<div class="menu-toggler">
+					<i class="fas fa-bars"></i>
+				</div>
 			</div>
 		</div>
 		<!-- Logo and menu wrapper -->

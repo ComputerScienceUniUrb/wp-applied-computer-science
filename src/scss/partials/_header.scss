@@ -16,62 +16,67 @@ header#header {
     }
 
     div.logo-menu-wrapper {
-        display: grid;
-        align-items: center;
         background: #fff;
 
+        > .logo-menu-constrainer {
+            @include contain();
 
-        @include respond-to(xs) {
-            padding: 0 10px 0 5px;
-            grid-template-columns: 80px calc(100% - 80px);
+            display: grid;
+            align-items: center;
 
-            top: 0;
-            height: 60px;
+            @include respond-to(xs) {
+                padding: 0 10px 0 5px;
+                grid-template-columns: 80px calc(100% - 80px);
 
-            >div.menu {
-                display: none;
+                top: 0;
+                height: 60px;
+
+                div.menu {
+                    display: none;
+                }
+
+                div.menu-toggler {
+                    justify-self: end;
+                    cursor: pointer;
+
+                    i {
+                        color: $primary;
+                        font-size: 15px;
+                    }
+                }
             }
 
-            >div.menu-toggler {
-                justify-self: end;
-                cursor: pointer;
+            @include respond-to(from-sm) {
+                padding: 0 10px;
+                grid-template-columns: 100px calc(100% - 100px);
 
-                i {
-                    color: $primary;
-                    font-size: 15px;
+                div.menu {
+                    grid-row: 1;
+                    justify-self: end;
+                }
+
+                div.logo {
+                    grid-row: 1;
+                }
+
+                div.menu-toggler {
+                    display: none;
                 }
             }
         }
 
-        @include respond-to(from-sm) {
-            padding: 0 10px;
-            grid-template-columns: 100px calc(100% - 100px);
-
-            >div.menu {
-                grid-row: 1;
-                justify-self: end;
-            }
-
-            >div.logo {
-                grid-row: 1;
-            }
-
-            >div.menu-toggler {
-                display: none;
-            }
-        }
-
-        >div.logo {
+        div.logo {
             img {
                 position: relative;
                 top: 3px;
             }
         }
 
-        >div.menu {
+        div.menu {
             height: $navBarHeight;
+            font-size: $fontSizeNav;
 
-            >ul {
+            > ul {
                 padding: 0;
                 margin: 0;
                 list-style: none;
@@ -86,26 +91,25 @@ header#header {
                             cursor: pointer;
                             @include fa_icon('\f107');
                             position: absolute;
-                            top: 27px;
+                            top: 19px;
                             right: 5px;
                             color: $primary;
-                            font-size: 11px;
                         }
 
                         a {
-                            padding-right: 15px;
+                            padding-right: 25px;
                         }
 
-                        +li {
+                        + li {
                             &:not(.menu-item-has-children) {
                                 a {
-                                    padding-right: 5px;
+                                    padding-right: 10px;
                                 }
                             }
                         }
 
                         &.hover {
-                            background: #f5f5f5;
+                            background: $navBarCurrentBackground;
 
                             >a {
                                 border-bottom: 1px solid $lightGrey;
@@ -113,14 +117,18 @@ header#header {
                         }
                     }
 
+                    &.current-menu-parent {
+                        background: $navBarCurrentBackground;
+                    }
+
                     a {
                         display: block;
                         height: $navBarHeight;
                         line-height: $navBarHeight;
-                        padding: 0 10px;
                         color: $primary;
-                        font-size: 13px;
+                        font-size: 1em;
                         font-weight: $fontWeightMedium;
+                        padding: 0 15px;
 
                         &:hover {
                             text-decoration: none;
@@ -145,7 +153,7 @@ header#header {
                         list-style: none;
                         position: absolute;
                         z-index: 1;
-                        left: -50px;
+                        right: - #{$borderRadius};
                         width: 200px;
                         margin: 0;
                         padding: 0;
@@ -182,7 +190,7 @@ header#header {
                                 padding: 10px;
                                 height: auto;
                                 line-height: inherit;
-                                font-size: 13px;
+                                font-size: 0.9em;
 
                                 &:hover {
                                     text-decoration: none;
@@ -204,7 +212,7 @@ header#header {
 
                                 li {
                                     a {
-                                        font-size: 12px;
+                                        font-size: 0.8em;
                                         padding: 10px 10px 10px 15px;
 
                                         &:hover {
@@ -215,14 +223,6 @@ header#header {
                             }
                         }
                     }
-
-                    // &:hover {
-                    //     >ul.sub-menu {
-                    //         visibility: visible;
-                    //         height: auto;
-                    //         transition-delay: 0s;
-                    //     }
-                    // }
                 }
             }
         }
@@ -246,7 +246,7 @@ header#header {
         }
     }
 
-    >img.main-logo {
+    > img.main-logo {
         @include respond-to(xs) {
             display: none;
         }
@@ -256,7 +256,7 @@ header#header {
         margin: #{$navBarHeight + $topbarHeight + 20px} auto 0;
     }
 
-    >div.sidebar {
+    > div.sidebar {
         height: 100%;
         width: 100%;
         position: fixed;
@@ -267,7 +267,7 @@ header#header {
         overflow-x: hidden;
         @include _transition(right 0.4s);
 
-        >h1 {
+        > h1 {
             margin: 0;
             font-size: 15px;
             text-transform: uppercase;
@@ -284,7 +284,7 @@ header#header {
             }
         }
 
-        >div.menu-toggler {
+        > div.menu-toggler {
             position: absolute;
             top: 20px;
             right: 10px;
@@ -296,7 +296,7 @@ header#header {
             }
         }
 
-        >div.menu {
+        > div.menu {
             top: 59px; // 1px border
             width: 100%;
             overflow: scroll;
@@ -371,62 +371,6 @@ header#header {
             width: 100%;
         }
 
-    }
-
-    &.dark {
-        div.logo-menu-wrapper {
-            background: $primary;
-            border-color: $darkGrey;
-
-            >div.menu {
-                >ul {
-                    li {
-                        &.menu-item-has-children {
-                            &::after {
-                                color: $textOnPrimary;
-                            }
-
-                            &.hover {
-                                background: darken($primary, 8%);
-
-                                >a {
-                                    border-color: $darkGrey;
-                                }
-                            }
-                        }
-
-                        a {
-                            color: $textOnPrimary;
-                        }
-
-                        ul.sub-menu {
-                            background: $primary;
-
-                            li {
-                                a {
-                                    &:hover {
-                                        background: darken($primary, 8%);
-                                    }
-                                }
-
-                                // all sub sub menus
-                                ul.sub-menu {
-                                    border-color: $darkGrey;
-                                    background: darken($primary, 10%);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-
-            &.scrolling {
-                @include respond-to(from-sm) {
-                    background: $primary;
-                }
-            }
-        }
     }
 }
 

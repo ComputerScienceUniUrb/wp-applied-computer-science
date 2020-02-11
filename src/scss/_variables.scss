@@ -6,6 +6,9 @@ $textOnAccent: #ffffff;
 $darkGrey: #777;
 $grey: #999;
 $lightGrey: #ddd;
+$shadedGrey: #f5f5f5;
+
+$navBarCurrentBackground: linear-gradient(to bottom, #FFF 0%, #FFF 60%, $shadedGrey 95%, $accent 95.1%);
 
 // sizes
 $topbarHeight: 30px;

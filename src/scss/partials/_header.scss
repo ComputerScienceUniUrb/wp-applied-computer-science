@@ -420,15 +420,23 @@ main {
             }
         }
 
+        /* Special content header */
         h1 {
             display: inline-block;
             margin-top: 3rem;
             margin-bottom: 1.5rem;
 
-            font-size: 5rem;
             font-weight: $fontWeightLight;
             color: $accent;
             border-bottom: solid 5px $lightGrey;
+
+            font-size: 3rem;
+            @include respond-to(from-sm) {
+                font-size: 4rem;
+            }
+            @include respond-to(from-md) {
+                font-size: 5rem;
+            }
 
             a.rss-link {
                 i {

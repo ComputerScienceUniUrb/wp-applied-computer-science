@@ -95,17 +95,6 @@ body {
     }
 
     h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        > a {
-            font-weight: $fontWeightBold;
-        }
-    }
-
-    h1,
     .h1,
     h2,
     .h2,
@@ -117,50 +106,70 @@ body {
     .h5,
     h6,
     .h6 {
-        line-height: 1.4;
+        display: inline-block;
         font-weight: $fontWeightBold;
+        margin-bottom: 0.5em;
+        line-height: 1.6;
+
+        > a {
+            text-decoration: none;
+            color: #000;
+        }
+    }
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+        border-bottom: solid 5px $accent;
     }
 
     h1,
     .h1 {
-        font-size: 28px;
-        margin-bottom: 10px;
+        font-size: $fontSizeText * 2;
 
-        @include respond-to(upto-sm) {
-            font-size: 24px;
+        @include respond-to(from-sm) {
+            font-size: $fontSizeText * 3;
         }
     }
 
     h2,
     .h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: $fontSizeText * 1.5;
 
-        @include respond-to(upto-sm) {
-            font-size: 22px;
+        @include respond-to(from-sm) {
+            font-size: $fontSizeText * 2;
         }
     }
     
     h3,
     .h3 {
-        font-size: 20px;
-        margin-bottom: 15px;
+        font-size: $fontSizeText * 1.3;
 
-        @include respond-to(upto-sm) {
-            font-size: 18px;
+        @include respond-to(from-sm) {
+            font-size: $fontSizeText * 1.6;
         }
     }
 
     h4,
     .h4,
     h5,
-    .h5,
+    .h5 {
+        font-size: $fontSizeText * 1.1;
+
+        @include respond-to(from-sm) {
+            font-size: $fontSizeText * 1.2;
+        }
+    }
+
     h6,
     .h6 {
-        font-size: 18px;
+        font-size: $fontSizeText;
 
-        @include respond-to(upto-sm) {
-            font-size: 16px;
+        @include respond-to(from-sm) {
+            font-size: $fontSizeText;
         }
     }
 
@@ -196,14 +205,9 @@ body {
 
     .entry-content {
         word-break: break-word;
-
-        h2, h3, h4, h5, h6 {
-            font-weight: $fontWeightMedium !important;
-        }
     }
 
     // Exams pages
-
     #t1, #t2, #t3 {
         padding-top: 80px;
     }

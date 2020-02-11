@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,400i,700&display=swap');
+
 @import './_variables.scss';
 @import './mixins/_responsive.scss';
 @import './mixins/_socials.scss';
@@ -17,21 +19,16 @@
 @import './pages/_homepage.scss';
 @import './pages/_teachers.scss';
 @import './pages/_bulletin-board.scss';
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap');
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 
-    font-weight: $fontWeightLight;
-    font-size: 14px;
-    line-height: 1.6;
+    font-weight: $fontWeightRegular;
+    font-size: 1.2em;
+    line-height: 1.8;
 
     padding: 0 !important;
     margin: 0 !important;
-
-    ul.socials {
-        @include socials($topbarHeight);
-    }
 
     b,
     strong {
@@ -39,7 +36,7 @@ body {
     }
 
     a {
-        font-weight: $fontWeightMedium;
+        font-weight: $fontWeightRegular;
         color: $accent;
         text-decoration: none;
         @include _transition(color 0.2s);

@@ -1,0 +1,19 @@
+@mixin contain() {
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include respond-to(from-sm) {
+        max-width: 720px;
+    }
+
+    @include respond-to(from-md) {
+        max-width: 920px;
+    }
+
+    @include respond-to(from-lg) {
+        max-width: 1000px;
+    }
+}

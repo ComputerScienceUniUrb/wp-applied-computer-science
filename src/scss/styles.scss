@@ -2,6 +2,7 @@
 
 @import './_variables.scss';
 @import './mixins/_responsive.scss';
+@import './mixins/_container.scss';
 @import './mixins/_socials.scss';
 @import './mixins/_transition.scss';
 @import './mixins/_fa_icon.scss';
@@ -24,7 +25,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 
     font-weight: $fontWeightRegular;
-    font-size: 1.2em;
+    font-size: $fontSizeText;
     line-height: 1.8;
 
     padding: 0 !important;
@@ -32,11 +33,10 @@ body {
 
     b,
     strong {
-        font-weight: $fontWeightMedium;
+        font-weight: $fontWeightBold;
     }
 
     a {
-        font-weight: $fontWeightRegular;
         color: $accent;
         text-decoration: none;
         @include _transition(color 0.2s);
@@ -62,7 +62,7 @@ body {
             "main"
             "footer";
         grid-template-rows: auto 1fr auto;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     #header {
@@ -86,23 +86,7 @@ body {
     }
 
     .container {
-        width: 100%;
-        padding-right: 10px;
-        padding-left: 10px;
-        margin-right: auto;
-        margin-left: auto;
-
-        @include respond-to(from-sm) {
-            max-width: 720px;
-        }
-
-        @include respond-to(from-md) {
-            max-width: 920px;
-        }
-
-        @include respond-to(from-lg) {
-            max-width: 1000px;
-        }
+        @include contain();
     }
 
     ul {

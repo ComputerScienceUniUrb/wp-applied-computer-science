@@ -21,60 +21,43 @@ header#header {
         > .logo-menu-constrainer {
             @include contain();
 
-            display: grid;
-            align-items: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
 
-            @include respond-to(xs) {
-                padding: 0 10px 0 5px;
-                grid-template-columns: 80px calc(100% - 80px);
-
-                top: 0;
-                height: 60px;
-
-                div.menu {
-                    display: none;
-                }
-
-                div.menu-toggler {
-                    justify-self: end;
-                    cursor: pointer;
-
-                    i {
-                        color: $primary;
-                        font-size: 15px;
-                    }
-                }
-            }
-
-            @include respond-to(from-sm) {
-                padding: 0 10px;
-                grid-template-columns: 100px calc(100% - 100px);
-
-                div.menu {
-                    grid-row: 1;
-                    justify-self: end;
-                }
-
-                div.logo {
-                    grid-row: 1;
-                }
-
-                div.menu-toggler {
-                    display: none;
-                }
-            }
+            height: $navBarHeight;
         }
 
         div.logo {
+            padding: 5px 0;
+
             img {
-                position: relative;
-                top: 3px;
+                width: auto;
+                height: $navBarHeight - 10px;
+                object-fit: contain;
+            }
+        }
+
+        div.menu-toggler {
+            cursor: pointer;
+            align-self: center;
+            padding: 5px;
+
+            display: block;
+            @include respond-to(from-sm) {
+                display: none;
             }
         }
 
         div.menu {
             height: $navBarHeight;
             font-size: $fontSizeNav;
+
+            display: none;
+            @include respond-to(from-sm) {
+                display: block;
+            }
 
             > ul {
                 padding: 0;
@@ -228,13 +211,17 @@ header#header {
         }
 
         position: fixed;
-        top: 30px;
+        top: 0;
         left: 0;
         height: $navBarHeight;
         width: 100%;
         z-index: 10;
         border-bottom: 1px solid #ddd;
         @include _transition(all 0.3s);
+
+        @include respond-to(from-sm) {
+            top: 30px;
+        }
 
         &.scrolling {
             @include respond-to(from-sm) {
@@ -284,13 +271,13 @@ header#header {
             }
         }
 
-        > div.menu-toggler {
+        div.menu-toggler {
             position: absolute;
             top: 20px;
             right: 10px;
             cursor: pointer;
 
-            >i {
+            > i {
                 font-size: 15px;
                 color: $primary;
             }

@@ -1,5 +1,5 @@
 header#header {
-    >div.topbar {
+    div.topbar {
         height: $topbarHeight;
         background: $primary;
         position: fixed;
@@ -8,6 +8,10 @@ header#header {
 
         @include respond-to(xs) {
             display: none;
+        }
+
+        div.socials {
+            @include socials($topbarHeight);
         }
     }
 

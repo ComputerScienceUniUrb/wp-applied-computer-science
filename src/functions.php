@@ -61,6 +61,9 @@ if (!function_exists( 'applied_computer_science_setup')) {
 }
 add_action('after_setup_theme', 'applied_computer_science_setup');
 
+// Hide admin bar
+add_filter('show_admin_bar', '__return_false');
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

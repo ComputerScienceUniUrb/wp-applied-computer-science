@@ -12,7 +12,7 @@
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
 
 	<?php wp_head(); ?>
@@ -25,7 +25,7 @@
 		
 		<?php include ('template-parts/social-bar.php'); ?>
 
-	    <!-- Logo and menu wrapper -->
+		<!-- Logo and menu wrapper -->
 		<div class="logo-menu-wrapper">
 			<div class="logo-menu-constrainer">
 				<div class="logo"><a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri() .'/img/logo.jpg' ?>" alt="Logo"></a></div>
@@ -43,7 +43,7 @@
 		<div class="sidebar">
 			<h1><?php echo get_bloginfo();?></h1>
 			<div class="menu-toggler">
-                <i class="fas fa-bars"></i>
+				<i class="fas fa-bars"></i>
 			</div>
 			<div class="menu">
 				<?php get_main_menu(); // Adjust using Menus in Wordpress Admin ?>

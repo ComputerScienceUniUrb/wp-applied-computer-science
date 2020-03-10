@@ -36,6 +36,10 @@ body {
         font-weight: $fontWeightBold;
     }
 
+    &.blocked {
+        overflow: hidden;
+    }
+
     a {
         color: $accent;
         text-decoration: none;

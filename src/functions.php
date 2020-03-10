@@ -115,17 +115,17 @@ function applied_computer_science_scripts() {
 	wp_enqueue_style( 'applied-computer-science-css', get_template_directory_uri() . '/css/styles.min.css');
 
 	wp_enqueue_script('jquery');
-	wp_enqueue_script( 'applied-computer-science-js', get_template_directory_uri() . '/js/applied-computer-science.js');
+	wp_enqueue_script('applied-computer-science-js', get_template_directory_uri() . '/js/applied-computer-science.js');
 
 	// Fontawesome 5.x
 	wp_enqueue_style('fontawesome-style',
 	'https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 	
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'applied_computer_science_scripts' );
+add_action('wp_enqueue_scripts', 'applied_computer_science_scripts');
 
 
 // Custom post types

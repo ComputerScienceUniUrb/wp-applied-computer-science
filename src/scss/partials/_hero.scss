@@ -3,10 +3,13 @@
 section.title {
     position: sticky;
     top: $navBarHeight;
-    background: #FFF;
+    background: $shadedGrey;
+    border-bottom: solid 1px $lightGrey;
 
     @include respond-to(from-sm) {
         margin-top: 2em;
+        background: none;
+        border-bottom: none;
     }
 
     h1 {
@@ -14,14 +17,16 @@ section.title {
         font-weight: $fontWeightLight;
         z-index: 5;
         position: relative;
-        background: $lightGrey;
         margin: 0 -15px;
         padding: 0 20px;
+        border-bottom: none;
 
         @include respond-to(from-sm) {
             display: inline-block;
+            background: $shadedGrey;
             margin-left: -20px;
-            transform: rotateZ(-3deg);
+            transform: rotateZ(-2deg);
+            border-bottom: solid 5px $accent;
         }
     }
 }

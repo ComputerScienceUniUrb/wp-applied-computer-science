@@ -28,6 +28,8 @@ section.title {
             transform: rotateZ(-2deg);
             border-bottom: solid 5px $accent;
         }
+
+        @include _transition(font-size 0.4s);
     }
 }
 
@@ -45,5 +47,16 @@ section.hero {
 section.title+section.hero {
     @include respond-to(from-sm) {
         margin-top: -2em;
+    }
+}
+
+/* Scrolling overrides */
+#page.scrolling {
+    section.title {
+        h1 {
+            @include respond-to(xs) {
+                font-size: 1.6rem;
+            }
+        }
     }
 }

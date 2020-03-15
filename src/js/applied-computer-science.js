@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
     // Scrolling
     jQuery(window).scroll(function() {
         const isScrolling = jQuery(window).scrollTop() > 100;
-        jQuery('div.logo-menu-wrapper').toggleClass("scrolling", isScrolling);
+        jQuery('#page').toggleClass("scrolling", isScrolling);
     });
 
     // Sidemenu opening

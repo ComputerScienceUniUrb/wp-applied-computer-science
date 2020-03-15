@@ -247,15 +247,6 @@ header#header {
         @include respond-to(from-sm) {
             top: 30px;
         }
-
-        &.scrolling {
-            @include respond-to(from-sm) {
-                background: #fff;
-                top: 0;
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
-                border-bottom: 1px solid transparent;
-            }
-        }
     }
 
     > img.main-logo {
@@ -397,48 +388,6 @@ main {
     header {
         @include _transition(all 0.3s);
 
-        &.scrolling {
-            position: fixed;
-            width: 100%;
-            background: #fff;
-            top: 0;
-            left: 70px; // depends on logo
-            height: $navBarHeight;
-            z-index: 12;
-
-            h1 {
-                font-size: 18px;
-                margin: 13px 0 0 0;
-                border: none;
-                padding: 0;
-            }
-
-            @include respond-to(xs) {
-                height: 59px; // 1px border
-                left: 53px; // depends on logo
-                width: calc(100% - 77px);
-
-                h1 {
-                    width: 80%;
-                    font-size: 15px;
-                    margin-top: 12px;
-                    word-break: break-all;
-
-                    @include _ellipsis-multiline(1, 20px);
-                    
-                    a.rss-link {
-                        i {
-                            font-size: 12px;
-                        }
-                    }
-                }
-
-                span.blog-name {
-                    font-size: 8px;
-                }
-            }
-        }
-
         /* Special content header */
         h1 {
             display: inline-block;
@@ -475,6 +424,20 @@ main {
 
             &.visible {
                 display: block;
+            }
+        }
+    }
+}
+
+/* Scrolling overrides */
+#page.scrolling {
+    header#header {
+        div.logo-menu-wrapper {
+            @include respond-to(from-sm) {
+                background: #fff;
+                top: 0;
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.15);
+                border-bottom: 1px solid transparent;
             }
         }
     }

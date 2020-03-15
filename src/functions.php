@@ -425,3 +425,22 @@ function get_content_shortcode($atts) {
 	echo '<script type="text/javascript">location.href = "'. $url .'";</script>';
 }
 add_shortcode('get_content', 'get_content_shortcode');
+
+function cdl_month_to_string($monthNumber) {
+	$monthNames = array(
+		'Gennaio',
+		'Febbraio',
+		'Marzo',
+		'Aprile',
+		'Maggio',
+		'Giugno',
+		'Luglio',
+		'Agosto',
+		'Settembre',
+		'Ottobre',
+		'Novembre',
+		'Dicembre'
+	);
+
+	return $monthNames[intval($monthNumber) - 1];
+}

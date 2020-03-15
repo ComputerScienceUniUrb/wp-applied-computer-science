@@ -1,6 +1,11 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,59 +14,25 @@
 
 get_header();
 ?>
+
 	<div id="primary" class="content-area">
-	<div class="container">
+		<section class="title">
+			<div class="container">
+				<h1>Archivio</h1>
+			</div>
+		</section>
+	
 		<main id="main" class="site-main">
 
-		<?php if (is_category()) { ?>
-        <?php $title = single_cat_title('', false); ?>
+		<?php while(have_posts()) { ?>
+			<?php the_post(); ?>
 
-    <?php } elseif (is_tag()) { ?> 
-        <?php $title = __("Post Taggati:", "applied-computer-science") . ' ' . single_tag_title('', false); ?>
+			<?php get_template_part('template-parts/content', get_post_type()); ?>
+		<?php } ?>
 
-    <?php } elseif (is_author()) { ?>
-        <?php the_post(); ?>
-        <?php $title = __("Posts By Author:", "applied-computer-science") . ' ' . get_the_author(); ?>
-        <?php rewind_posts(); ?>
-
-    <?php } elseif (is_day()) { ?>
-        <?php $title = __("Daily Archives:", "applied-computer-science") . ' ' . the_time('l, F j, Y'); ?>
-
-    <?php } elseif (is_month()) { ?>
-        <?php $title = __("Monthly Archives:", "applied-computer-science") . ' ' . the_time('F Y'); ?>
-
-    <?php } elseif (is_year()) { ?>
-        <?php $title = __("Yearly Archives:", "applied-computer-science") . ' ' . the_time('Y'); ?>
-    <?php } ?>
-
-
-		<header class="entry-header">
-			<h1 class="entry-title"><?php echo $title; ?></h1>
-			<span class="blog-name"><?php echo get_bloginfo();?></span>
-		</header><!-- .entry-header -->
-
-		<?php if ( have_posts() ) : ?>
-
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'template-parts/article', get_post_type() );
-			endwhile;
-
-			page_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-</div> <!-- #container -->
 		</main><!-- #main -->
-	</div><!-- #primary -->
+
+	</div>
 
 <?php
-// get_sidebar();
 get_footer();

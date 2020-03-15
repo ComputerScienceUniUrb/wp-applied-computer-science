@@ -21,6 +21,7 @@
 @import './pages/_homepage.scss';
 @import './pages/_teachers.scss';
 @import './pages/_bulletin-board.scss';
+@import './pages/_newsfeed.scss';
 
 body {
     font-family: 'Source Sans Pro', sans-serif;
@@ -78,6 +79,9 @@ body {
         grid-area: main;
 
         padding-top: $navBarHeight;
+        @include respond-to(from-sm) {
+            padding-top: ($navBarHeight + $topbarHeight);
+        }
     }
 
     #footer {
@@ -119,10 +123,20 @@ body {
     h1,
     .h1,
     h2,
-    .h2,
+    .h2 {
+        text-decoration: none;
+        background-image: linear-gradient(to bottom, transparent 2px, $accent 2px, $accent 6px, transparent 6px);
+        background-size: 100% 8px;
+        background-position: 0 bottom;
+        background-repeat: no-repeat;
+    }
     h3,
     .h3 {
-        border-bottom: solid 5px $accent;
+        text-decoration: none;
+        background-image: linear-gradient(to bottom, transparent 2px, $accent 2px, $accent 4px, transparent 4px);
+        background-size: 100% 6px;
+        background-position: 0 bottom;
+        background-repeat: no-repeat;
     }
 
     h1,

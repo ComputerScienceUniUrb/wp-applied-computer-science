@@ -46,7 +46,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- Logo and menu wrapper -->
 
 		<!-- Sidebar (for mobile) -->
 		<div class="sidebar">
@@ -60,9 +59,6 @@
 
 			<?php include ('template-parts/social-bar.php'); ?>
 		</div>
-		<!-- Sidebar menu -->
-
-		<!-- <img class="main-logo" src="<?php echo home_url('assets/logo_sti_new.png') ?>" alt="Logo"> -->
 	</header>
 
 	<div id="content" class="site-content">

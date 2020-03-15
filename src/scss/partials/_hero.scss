@@ -1,0 +1,44 @@
+/* Hero titling */
+
+section.title {
+    position: sticky;
+    top: $navBarHeight;
+    background: #FFF;
+
+    @include respond-to(from-sm) {
+        margin-top: 2em;
+    }
+
+    h1 {
+        display: block;
+        font-weight: $fontWeightLight;
+        z-index: 5;
+        position: relative;
+        background: $lightGrey;
+        margin: 0 -15px;
+        padding: 0 20px;
+
+        @include respond-to(from-sm) {
+            display: inline-block;
+            margin-left: -20px;
+            transform: rotateZ(-3deg);
+        }
+    }
+}
+
+section.hero {
+    margin-top: 2em;
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: $largeBorderRadius;
+        box-shadow: change-color($primary, $alpha: 0.2) 0px 3px $largeBorderRadius;
+    }
+}
+
+section.title+section.hero {
+    @include respond-to(from-sm) {
+        margin-top: -2em;
+    }
+}

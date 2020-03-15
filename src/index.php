@@ -20,6 +20,12 @@ get_header();
 	<?php if((is_front_page() || is_singular()) && have_posts()) { ?>
 	<?php the_post(); ?>
 
+		<section class="title">
+			<div class="container">
+				<h1><?php the_title(); ?></h1>
+			</div>
+		</section>
+
 	<?php if(has_post_thumbnail()) { ?>
 		<section class="hero">
 			<div class="container">
@@ -35,36 +41,13 @@ get_header();
 
 		<main id="main" class="site-main">
 
-		<?php
-		if ( have_posts() ) :
+		<?php while(have_posts()) { ?>
+			<?php the_post(); ?>
 
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			<?php get_template_part('template-parts/clean', get_post_type()); ?>
+		<?php } ?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

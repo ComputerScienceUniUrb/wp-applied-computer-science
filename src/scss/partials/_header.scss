@@ -32,10 +32,29 @@ header#header {
         div.logo {
             padding: 5px 0;
 
+            > a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
             img {
                 width: auto;
                 height: $navBarHeight - 10px;
-                object-fit: contain;
+            }
+
+            .logotype {
+                margin-left: 10px;
+                line-height: 1;
+
+                .title {
+                    text-transform: uppercase;
+                    font-weight: $fontWeightBold;
+                }
+                .subtitle {
+                    color: $darkGrey;
+                    font-weight: $fontWeightLight;
+                }
             }
         }
 

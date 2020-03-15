@@ -28,7 +28,16 @@
 		<!-- Logo and menu wrapper -->
 		<div class="logo-menu-wrapper">
 			<div class="logo-menu-constrainer">
-				<div class="logo"><a href="<?php echo home_url(); ?>"><img id="logo" src="<?php echo get_template_directory_uri() .'/img/logo.jpg' ?>" alt="Logo"></a></div>
+				<div class="logo">
+					<a href="<?php echo home_url(); ?>">
+						<img id="logo" src="<?php echo get_template_directory_uri() .'/img/favicon-w128.png' ?>" srcset="<?php echo get_template_directory_uri() .'/img/favicon-w128.png' ?> 128w, <?php echo get_template_directory_uri() .'/img/favicon-w256.png' ?> 256w, <?php echo get_template_directory_uri() .'/img/favicon-w512.png' ?> 512w" alt="Logo">
+						<div class="logotype">
+							<div class="subtitle">Magistrale</div>
+							<div class="title">Informatica</div>
+							<div class="title">Applicata</div>
+						</div>
+					</a>
+				</div>
 				<div class="menu">
 					<?php get_main_menu(); ?>
 				</div>

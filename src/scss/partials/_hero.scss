@@ -20,6 +20,7 @@ section.title {
         margin: 0 -15px;
         padding: 0 20px;
         border-bottom: none;
+        background: none;
 
         @include respond-to(from-sm) {
             display: inline-block;

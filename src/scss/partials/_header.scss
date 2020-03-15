@@ -385,48 +385,7 @@ header#header {
 }
 
 main {
-    header {
-        @include _transition(all 0.3s);
-
-        /* Special content header */
-        h1 {
-            display: inline-block;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-
-            font-weight: $fontWeightLight;
-            color: $accent;
-            border-bottom: solid 5px $lightGrey;
-
-            font-size: 3rem;
-            @include respond-to(from-sm) {
-                font-size: 4rem;
-            }
-            @include respond-to(from-md) {
-                font-size: 5rem;
-            }
-
-            a.rss-link {
-                i {
-                    font-size: 16px;
-                    position: relative;
-                    top: -1px;
-                }
-            }
-        }
-
-        span.blog-name {
-            text-transform: uppercase;
-            color: $darkGrey;
-            font-size: 10px;
-            font-weight: $fontWeightRegular;
-            display: none;
-
-            &.visible {
-                display: block;
-            }
-        }
-    }
+    margin-top: 2em;
 }
 
 /* Scrolling overrides */

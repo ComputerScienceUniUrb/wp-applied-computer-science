@@ -271,6 +271,10 @@ header#header {
             font-size: 15px;
             background-color: $accent;
             border-bottom: none;
+
+            a, a:hover, a:visited {
+                color: inherit;
+            }
         }
 
         &.open {
@@ -295,15 +299,15 @@ header#header {
         > div.menu {
             top: 59px; // 1px border
             width: 100%;
-            overflow: scroll;
+            overflow: auto;
             border-top: 1px solid $lightGrey;
 
-            >ul {
+            > ul {
                 padding: 0;
                 margin: 0;
                 list-style: none;
 
-                >li {
+                > li {
                     &:hover {
                         >a {
                             text-decoration: none !important;
@@ -317,7 +321,7 @@ header#header {
 
                     a {
                         display: block;
-                        padding: 10px;
+                        padding: 10px 20px;
                         color: $primary;
                         font-size: 13px;
                         font-weight: $fontWeightRegular;
@@ -328,7 +332,7 @@ header#header {
                             @include fa_icon('\f107');
                             position: absolute;
                             top: 10px;
-                            right: 10px;
+                            right: 20px;
                             color: $primary;
                         }
                     }
@@ -343,7 +347,7 @@ header#header {
                         list-style: none;
                         display: none;
                         margin: 0;
-                        padding: 0 0 0 15px;
+                        padding-left: 20px;
 
                         li {
                             position: relative;

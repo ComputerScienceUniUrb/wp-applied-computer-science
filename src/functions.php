@@ -7,7 +7,7 @@
  * @package applied-computer-science
  */
 
-if (!function_exists( 'applied_computer_science_setup')) {
+if (!function_exists('applied_computer_science_setup')) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -94,7 +94,7 @@ function applied_computer_science_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	));
-	
+
 	register_sidebar(array(
 		'name' => esc_html__('Footer', 'applied-computer-science'),
 		'id' => 'footer',
@@ -111,8 +111,8 @@ add_action( 'widgets_init', 'applied_computer_science_widgets_init' );
  * Enqueue scripts and styles.
  */
 function applied_computer_science_scripts() {
-	wp_enqueue_style( 'applied-computer-science-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'applied-computer-science-css', get_template_directory_uri() . '/css/styles.min.css');
+	wp_enqueue_style('applied-computer-science-style', get_stylesheet_uri());
+	wp_enqueue_style('applied-computer-science-css', get_template_directory_uri() . '/css/styles.min.css');
 
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('applied-computer-science-js', get_template_directory_uri() . '/js/applied-computer-science.js');
@@ -120,7 +120,7 @@ function applied_computer_science_scripts() {
 	// Fontawesome 5.x
 	wp_enqueue_style('fontawesome-style',
 	'https://use.fontawesome.com/releases/v5.8.2/css/all.css');
-	
+
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
@@ -136,7 +136,7 @@ require_once('custom-post-types/teachers.php');
 
 function get_main_menu($lang = 'IT') {
 	// display the wp3 menu if available
-    wp_nav_menu(array( 
+    wp_nav_menu(array(
     	'container' => false,                           // remove nav container
     	'container_class' => 'menu clearfix',           // class of container (should you choose to use it)
     	'menu' => 'main-menu-it',                           // nav name
@@ -240,8 +240,7 @@ function get_last_bulletin_posts( $atts ){
 	));
 
 	$output = '';
-
-	while ( $query->have_posts() ) :
+	while ($query->have_posts()):
 		ob_start();
 		$query->the_post();
 		include 'template-parts/post-preview.php';
@@ -251,10 +250,9 @@ function get_last_bulletin_posts( $atts ){
 
 	return $output;
 }
-add_shortcode( 'last_bulletin_posts', 'get_last_bulletin_posts' );
+add_shortcode('last_bulletin_posts', 'get_last_bulletin_posts');
 
 function get_latests_posts($atts) {
-
 	$a = shortcode_atts( array(
 		'cat_id' => '',
 		'num_posts' => '5',
@@ -272,25 +270,24 @@ function get_latests_posts($atts) {
 		'order' => 'DESC',
 		'orderby' => 'date'
 	));
-	
+
 	$output = '';
-	
-	while ($query->have_posts() ) :
+
+	while ($query->have_posts()) :
 		ob_start();
 		$query->the_post();
 		include 'template-parts/post-preview.php';
 		$output .= ob_get_contents();
 		ob_end_clean();
 	endwhile;
-    
-    wp_reset_query();
-    
-    return $output;
+
+	wp_reset_query();
+
+	return $output;
 }
 add_shortcode('latests_posts', 'get_latests_posts');
 
 function get_bulletin_board() {
-
 	$query = new WP_Query(array(
 		'post_type' => 'bulletin_board',
 		'posts_per_page' => -1,
@@ -368,7 +365,7 @@ function get_teachers($atts) {
 		)
 	);
 
-    $query = new WP_Query($queryParams);
+	$query = new WP_Query($queryParams);
 
 	$class = $isSpecial ? 'special' : '';
 	$output = '<div class="teachers row ' . $class . '">';
@@ -394,34 +391,34 @@ add_shortcode('comment', 'sti_comment_shortcode');
 
 
 function col_shortcode($atts, $content) {
-    
-    extract(shortcode_atts(array(
-        'n' => '4',
-        'c' => ''
+	extract(shortcode_atts(array(
+		'n' => '4',
+		'c' => ''
 	), $atts));
-	
+
 	$class = 'col col-' . $n;
 
-    if ($c)
+	if ($c) {
 		$class .= ' ' . $c;
-    
+	}
+
     $div = '<div class="' . $class . '">';
-            
-    return $div . do_shortcode(wpautop($content)) . '</div>';
+
+	return $div . do_shortcode(wpautop($content)) . '</div>';
 }
 add_shortcode('col', 'col_shortcode');
 
 
-function row_shortcode($atts, $content) {    
-    return '<div class="row">' . do_shortcode($content) . '</div>';
+function row_shortcode($atts, $content) {
+	return '<div class="row">' . do_shortcode($content) . '</div>';
 }
 add_shortcode('row', 'row_shortcode');
 
 function get_content_shortcode($atts) {
-    extract(shortcode_atts(array(
-        'url' => '',
-    ), $atts));
-	
+	extract(shortcode_atts(array(
+		'url' => '',
+	), $atts));
+
 	echo '<script type="text/javascript">location.href = "'. $url .'";</script>';
 }
 add_shortcode('get_content', 'get_content_shortcode');

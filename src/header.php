@@ -17,14 +17,14 @@
 
 	<?php wp_head(); ?>
 
-	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri() .'/img/favicon-w128.png' ?>" />
+	<link rel="shortcut icon" type="image/png" href="<?php echo get_template_directory_uri() .'/img/favicon-magistrale-w128.png' ?>" />
 </head>
 
 <body <?php body_class(); ?>>
 
 <div id="page" class="site">
 	<header id="header" class="site-header">
-		
+
 		<?php include ('template-parts/social-bar.php'); ?>
 
 		<!-- Logo and menu wrapper -->
@@ -32,7 +32,7 @@
 			<div class="logo-menu-constrainer">
 				<div class="logo">
 					<a href="<?php echo home_url(); ?>">
-						<img id="logo" src="<?php echo get_template_directory_uri() .'/img/favicon-w128.png' ?>" srcset="<?php echo get_template_directory_uri() .'/img/favicon-w128.png' ?> 128w, <?php echo get_template_directory_uri() .'/img/favicon-w256.png' ?> 256w, <?php echo get_template_directory_uri() .'/img/favicon-w512.png' ?> 512w" alt="Logo">
+						<img id="logo" src="<?php echo get_template_directory_uri() .'/img/favicon-magistrale-w128.png' ?>" srcset="<?php echo get_template_directory_uri() .'/img/favicon-magistrale-w128.png' ?> 128w, <?php echo get_template_directory_uri() .'/img/favicon-magistrale-w256.png' ?> 256w, <?php echo get_template_directory_uri() .'/img/favicon-magistrale-w512.png' ?> 512w" alt="Logo">
 						<div class="logotype">
 							<div class="subtitle">Magistrale</div>
 							<div class="title">Informatica</div>

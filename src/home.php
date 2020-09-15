@@ -16,8 +16,8 @@ get_header();
 				<h1>Novità</h1>
 			</div>
 		</section>
-	
-		<main id="main" class="site-main">
+
+		<main id="main" class="site-main newsfeed">
 
 		<?php while(have_posts()) { ?>
 			<?php the_post(); ?>

@@ -2,7 +2,6 @@
 /**
  * The front page template file
  *
- *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package applied-computer-science
@@ -31,7 +30,7 @@ get_header();
 		</section>
 
 	<?php } ?>
-	
+
 	<?php rewind_posts(); ?>
 <?php } ?>
 

@@ -217,15 +217,7 @@ add_filter('excerpt_more', 'custom_excerpt_more');
 
 
 // ------------- Shortcodes -------------
-function get_last_bulletin_posts( $atts ){
-	$a = shortcode_atts( array(
-		'num_posts' => '5',
-		'show_content' => true
-	), $atts );
-
-	$num_posts = (int)$a['num_posts'];
-	$show_content = (bool)$a['show_content'];
-
+function get_last_bulletin_posts($num_posts = 3){
 	$query = new WP_Query(array(
 		'post_type' => 'bulletin_board',
 		'posts_per_page' => $num_posts,
@@ -239,18 +231,8 @@ function get_last_bulletin_posts( $atts ){
 		)
 	));
 
-	$output = '';
-	while ($query->have_posts()):
-		ob_start();
-		$query->the_post();
-		include 'template-parts/post-preview.php';
-		$output .= ob_get_contents();
-		ob_end_clean();
-	endwhile;
-
-	return $output;
+	return $query;
 }
-add_shortcode('last_bulletin_posts', 'get_last_bulletin_posts');
 
 function get_latests_posts($atts) {
 	$a = shortcode_atts( array(

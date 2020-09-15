@@ -44,6 +44,31 @@ get_header();
 
 		</main><!-- #main -->
 
+		<?php $bulletin_board_query = get_last_bulletin_posts(); ?>
+		<?php if($bulletin_board_query->have_posts()) { ?>
+		<aside class="bulletin-board">
+
+			<div class="container">
+				<h2>Bacheca</h2>
+			</div>
+
+			<?php while($bulletin_board_query->have_posts()) { ?>
+				<?php $bulletin_board_query->the_post(); ?>
+
+				<?php get_template_part('template-parts/clean', get_post_type()); ?>
+			<?php } ?>
+
+			<div class="container">
+				<p>
+					<a href="<?php echo get_post_type_archive_link('bulletin_board'); ?>">Vedi tutti gli annunci</a>
+					•
+					<a href="<?php bloginfo('rss2_url'); ?>?post_type[]=bulletin_board" title="Segui il feed RSS della bacheca">Feed RSS bacheca</a>
+				</p>
+			<div>
+
+		</aside>
+		<?php } ?>
+
 	</div>
 
 <?php

@@ -119,7 +119,7 @@ header#header {
                         }
                     }
 
-                    &.current-menu-parent {
+                    &.current-menu-parent, &.current-menu-item {
                         background: $navBarCurrentBackground;
                     }
 
@@ -140,13 +140,6 @@ header#header {
                             &:hover {
                                 color: $accent;
                             }
-                        }
-                    }
-
-
-                    &.current-menu-item {
-                        >a {
-                            color: $accent;
                         }
                     }
 
@@ -348,7 +341,7 @@ header#header {
                     }
 
                     &.current-menu-item {
-                        >a {
+                        > a {
                             color: $accent;
                         }
                     }

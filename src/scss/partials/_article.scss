@@ -1,4 +1,4 @@
-div.article {
+div.article, article {
     background: #fff;
     border-bottom: 1px solid $lightGrey;
     padding-top: 30px;
@@ -8,7 +8,7 @@ div.article {
         padding-top: 0;
     }
 
-    >.title {
+    > .title {
         margin-top: 0;
         margin-bottom: 5px;
         font-size: 20px;
@@ -21,7 +21,7 @@ div.article {
         }
     }
 
-    >.tags {
+    > .tags {
         margin-top: 5px;
         font-size: 11px;
         a {
@@ -29,7 +29,7 @@ div.article {
         }
     }
 
-    >.content {
+    > .content {
         font-size: 14px;
         @include respond-to(xs) {
             font-size: 13px;
@@ -56,5 +56,9 @@ div.article {
         *:last-child {
             margin-bottom: 0;
         }
+    }
+
+    .expiry-date {
+        font-style: italic;
     }
 }

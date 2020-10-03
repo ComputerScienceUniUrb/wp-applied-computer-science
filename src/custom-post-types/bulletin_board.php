@@ -1,9 +1,8 @@
 <?php
 function custom_post_bulletin_board() {
 	/* (http://codex.wordpress.org/Function_Reference/register_post_type) */
-	register_post_type('bulletin_board',
-		// let's now add all the options for this post type
-		array('labels' => array(
+	register_post_type('bulletin_board', array(
+		'labels' => array(
 			'name' => __('Bacheca', 'applied-computer-science'), /* This is the Title of the Group */
 			'singular_name' => __('Annuncio', 'applied-computer-science'), /* This is the individual type */
 			'all_items' => __('Tutti gli annunci', 'applied-computer-science'), /* the all items menu item */
@@ -25,15 +24,17 @@ function custom_post_bulletin_board() {
 		'query_var' => true,
 		'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
 		//'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-icon.png', /* the icon for the custom post type menu */
-		'rewrite' => array('slug' => 'bulletin-board', 'with_front' => true, 'feeds' => true), /* you can specify it's url slug */
-//        'has_archive' => '...', /* you can rename the slug here */
-		'has_archive' => true,
+		'rewrite' => array(
+			'slug' => 'bulletin-board',
+			'with_front' => true,
+			'feeds' => true
+		),
+		'has_archive' => false,
 		'capability_type' => 'post',
 		'hierarchical' => false,
 		/* the next one is important, it tells what's enabled in the post editor */
 		'supports' => array('title', 'editor', 'author', 'thumbnail')
-			) /* end of options */
-	); /* end of register post type */
+	));
 }
 
 add_action('init', 'custom_post_bulletin_board');

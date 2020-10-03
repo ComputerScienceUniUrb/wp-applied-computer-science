@@ -60,7 +60,7 @@ get_header();
 
 			<div class="container">
 				<p>
-					<a href="<?php echo get_post_type_archive_link('bulletin_board'); ?>">Vedi tutti gli annunci</a>
+					<a href="<?php echo get_the_permalink(get_page_by_path('bacheca')); ?>">Vedi tutti gli annunci</a>
 					•
 					<a href="<?php bloginfo('rss2_url'); ?>?post_type[]=bulletin_board" title="Segui il feed RSS della bacheca">Feed RSS bacheca</a>
 				</p>

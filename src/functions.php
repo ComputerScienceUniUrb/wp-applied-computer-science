@@ -423,3 +423,33 @@ function cdl_month_to_string($monthNumber) {
 
 	return $monthNames[intval($monthNumber) - 1];
 }
+
+function cdl_weekday_to_string($weekdayNumber) {
+	$weekdayNames = array(
+		'lunedì',
+		'martedì',
+		'mercoledì',
+		'giovedì',
+		'venerdì',
+		'sabato',
+		'domenica'
+	);
+
+	return $weekdayNames[intval($weekdayNumber) - 1];
+}
+
+function cdl_date_field_to_extended($field_name) {
+	$value = get_field($field_name);
+	if(!$value) {
+		return '—';
+	}
+
+	$datetime = DateTime::createFromFormat('d/m/Y', $value);
+
+	return 
+		cdl_weekday_to_string($datetime->format('N')) . ' ' . 
+		$datetime->format('j') . ' ' . 
+		cdl_month_to_string($datetime->format('n')) . ' ' . 
+		$datetime->format('Y')
+	;
+}
